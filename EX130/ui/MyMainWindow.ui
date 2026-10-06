@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(156, 104, 0);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <pointsize>24</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>KHẤU HAO TÀI SẢN CỐ ĐỊNH</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="giMuaMILabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Giá mua mới:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="LineEditNew">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="phVNChuyNLabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Phí vận chuyển: </string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="LineEditTrans">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="phLPTLabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Phí lắp đặt:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="LineEditSetup">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+              <property name="text">
+               <string>0</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="sNMSDNgDKiNLabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Số năm sử dụng dự kiến:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="LineEditYear">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QPushButton" name="pushButtonCalc">
+              <property name="font">
+               <font>
+                <italic>false</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(243, 162, 0);
+color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>1. Tính khấu hao</string>
+              </property>
+              <property name="icon">
+               <iconset>
+                <normaloff>../images/icon_calculator.png</normaloff>../images/icon_calculator.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="0">
+             <widget class="QLabel" name="nguyNGiTSCLabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Nguyên giá TSCĐ:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="5" column="1">
+             <widget class="QLineEdit" name="LineEditOrg">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="0">
+             <widget class="QLabel" name="mCTrChKhUHaoNMLabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Mức trích khấu hao năm:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="6" column="1">
+             <widget class="QLineEdit" name="LineEditYearDep">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="mCTrChKhUHaoThNgLabel">
+              <property name="font">
+               <font>
+                <italic>true</italic>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);</string>
+              </property>
+              <property name="text">
+               <string>Mức trích khấu hao tháng:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <widget class="QLineEdit" name="LineEditMonthDep">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QListWidget" name="listWidget">
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 217, 156);</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonDetail">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(243, 162, 0);
+color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>2. Xem chi tiết</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../images/icon_detail.png</normaloff>../images/icon_detail.png</iconset>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_4"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
