@@ -12,6 +12,10 @@ class MyMainWindowEx(Ui_MainWindow):
     def setupSignalAndSlot(self):
         self.pushButtonCalc.clicked.connect(self.process_dep)
         self.pushButtonDetail.clicked.connect(self.view_detail)
+        self.LineEditNew.returnPressed.connect(self.process_dep)
+        self.LineEditTrans.returnPressed.connect(self.process_dep)
+        self.LineEditSetup.returnPressed.connect(self.process_dep)
+        self.LineEditYear.returnPressed.connect(self.process_dep)
 
     def get_data(self):
         return dep_calc(
@@ -22,7 +26,10 @@ class MyMainWindowEx(Ui_MainWindow):
         )
     def view_detail(self):
         try:
-            *_, result_list = self.get_data()
+            org, year, month, result_list = self.get_data()
+            self.LineEditOrg.setText(str(round(org, 0)))
+            self.LineEditYearDep.setText(str(round(year, 0)))
+            self.LineEditMonthDep.setText(str(round(month, 0)))
             self.listWidget.clear()
             self.listWidget.addItems(result_list)
         except Exception as error:

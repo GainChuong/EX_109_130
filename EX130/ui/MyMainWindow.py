@@ -12,143 +12,538 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 600)
-        MainWindow.setStyleSheet("background-color: rgb(156, 104, 0);")
+        MainWindow.resize(1140, 720)
+        MainWindow.setMinimumSize(QtCore.QSize(1040, 660))
+        MainWindow.setStyleSheet("/* ================= GLOBAL WEB3 FOUNDATION ================= */\n"
+"QMainWindow, QWidget#centralwidget {\n"
+"    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,\n"
+"        stop:0 #080b11,\n"
+"        stop:0.35 #0c1018,\n"
+"        stop:0.7 #0e1320,\n"
+"        stop:1 #080b12);\n"
+"    font-family: \'Segoe UI\', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;\n"
+"    color: #f1f5f9;\n"
+"}\n"
+"\n"
+"/* ================= LEFT HERO & STATS ================= */\n"
+"QLabel#label {\n"
+"    font-size: 32px;\n"
+"    font-weight: 900;\n"
+"    line-height: 1.15;\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"QLabel#heroDesc {\n"
+"    color: #94a3b8;\n"
+"    font-size: 13px;\n"
+"    line-height: 1.5;\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"/* Stat Cards (Total Volume, Users, Chains equivalent) */\n"
+"QFrame#statCard1, QFrame#statCard2, QFrame#statCard3 {\n"
+"    background-color: #111722;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.08);\n"
+"    border-radius: 16px;\n"
+"    padding: 10px 14px;\n"
+"}\n"
+"\n"
+"QFrame#statCard1:hover, QFrame#statCard2:hover, QFrame#statCard3:hover {\n"
+"    border: 1px solid rgba(56, 189, 248, 0.3);\n"
+"}\n"
+"\n"
+"QLabel#nguyNGiTSCLabel, QLabel#mCTrChKhUHaoNMLabel, QLabel#mCTrChKhUHaoThNgLabel {\n"
+"    color: #64748b;\n"
+"    font-size: 11px;\n"
+"    font-weight: 700;\n"
+"    text-transform: uppercase;\n"
+"    letter-spacing: 0.5px;\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"QLineEdit#LineEditOrg {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #34d399;\n"
+"    font-size: 18px;\n"
+"    font-weight: 900;\n"
+"    padding: 2px 0;\n"
+"}\n"
+"\n"
+"QLineEdit#LineEditYearDep {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #38bdf8;\n"
+"    font-size: 18px;\n"
+"    font-weight: 900;\n"
+"    padding: 2px 0;\n"
+"}\n"
+"\n"
+"QLineEdit#LineEditMonthDep {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #a78bfa;\n"
+"    font-size: 18px;\n"
+"    font-weight: 900;\n"
+"    padding: 2px 0;\n"
+"}\n"
+"\n"
+"/* Schedule Card (List of annual depreciation) */\n"
+"QFrame#scheduleCard {\n"
+"    background-color: #111722;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.08);\n"
+"    border-radius: 16px;\n"
+"    padding: 14px;\n"
+"}\n"
+"\n"
+"QLabel#scheduleTitle {\n"
+"    color: #f1f5f9;\n"
+"    font-size: 13px;\n"
+"    font-weight: 700;\n"
+"}\n"
+"\n"
+"QLabel#scheduleSub {\n"
+"    color: #64748b;\n"
+"    font-size: 11px;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonDetail {\n"
+"    background-color: rgba(99, 102, 241, 0.15);\n"
+"    border: 1px solid rgba(99, 102, 241, 0.35);\n"
+"    color: #a5b4fc;\n"
+"    border-radius: 10px;\n"
+"    padding: 7px 16px;\n"
+"    font-size: 12px;\n"
+"    font-weight: 700;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonDetail:hover {\n"
+"    background-color: rgba(99, 102, 241, 0.3);\n"
+"    border-color: #818cf8;\n"
+"    color: #ffffff;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonDetail:pressed {\n"
+"    background-color: #4f46e5;\n"
+"}\n"
+"\n"
+"QListWidget#listWidget {\n"
+"    background-color: #0b0f17;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.05);\n"
+"    border-radius: 12px;\n"
+"    padding: 6px;\n"
+"    color: #e2e8f0;\n"
+"    font-size: 12px;\n"
+"}\n"
+"\n"
+"QListWidget#listWidget::item {\n"
+"    background-color: #131926;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.05);\n"
+"    border-radius: 8px;\n"
+"    padding: 8px 12px;\n"
+"    margin-bottom: 4px;\n"
+"    color: #f1f5f9;\n"
+"}\n"
+"\n"
+"QListWidget#listWidget::item:hover {\n"
+"    background-color: rgba(56, 189, 248, 0.12);\n"
+"    border-color: rgba(56, 189, 248, 0.3);\n"
+"}\n"
+"\n"
+"QListWidget#listWidget::item:selected {\n"
+"    background: rgba(99, 102, 241, 0.25);\n"
+"    border: 1px solid #6366f1;\n"
+"    color: #ffffff;\n"
+"    font-weight: 700;\n"
+"}\n"
+"\n"
+"/* ================= RIGHT SWAP CARD ================= */\n"
+"QFrame#swapCard {\n"
+"    background-color: #111722;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.09);\n"
+"    border-radius: 24px;\n"
+"    padding: 22px;\n"
+"}\n"
+"\n"
+"QLabel#swapTitle {\n"
+"    color: #ffffff;\n"
+"    font-size: 17px;\n"
+"    font-weight: 800;\n"
+"}\n"
+"\n"
+"QLabel#swapStandardBadge {\n"
+"    color: #64748b;\n"
+"    font-size: 11px;\n"
+"    font-weight: 600;\n"
+"}\n"
+"\n"
+"/* Swap Input Containers (\"From\" / \"To\" Style) */\n"
+"QFrame#boxInputPrice, QFrame#boxInputCosts, QFrame#boxInputYear {\n"
+"    background-color: #0b0f17;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.06);\n"
+"    border-radius: 14px;\n"
+"    padding: 12px 14px;\n"
+"}\n"
+"\n"
+"QFrame#boxInputPrice:hover, QFrame#boxInputCosts:hover, QFrame#boxInputYear:hover {\n"
+"    border: 1px solid rgba(255, 255, 255, 0.15);\n"
+"}\n"
+"\n"
+"QLabel#giMuaMILabel, QLabel#phVNChuyNLabel, QLabel#phLPTLabel, QLabel#sNMSDNgDKiNLabel {\n"
+"    color: #64748b;\n"
+"    font-size: 12px;\n"
+"    font-weight: 600;\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"QLabel#hintBalance, QLabel#hintRate, QLabel#hintSubCost {\n"
+"    color: #64748b;\n"
+"    font-size: 11px;\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"/* LineEdit Inputs inside Swap card */\n"
+"QLineEdit#LineEditNew, QLineEdit#LineEditYear {\n"
+"    background: transparent;\n"
+"    border: none;\n"
+"    color: #ffffff;\n"
+"    font-size: 18px;\n"
+"    font-weight: 700;\n"
+"    padding: 2px 0;\n"
+"    selection-background-color: #5865F2;\n"
+"}\n"
+"\n"
+"QLineEdit#LineEditTrans, QLineEdit#LineEditSetup {\n"
+"    background-color: #111722;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.08);\n"
+"    border-radius: 8px;\n"
+"    color: #f1f5f9;\n"
+"    font-size: 13px;\n"
+"    font-weight: 600;\n"
+"    padding: 6px 10px;\n"
+"    selection-background-color: #5865F2;\n"
+"}\n"
+"\n"
+"QLineEdit#LineEditTrans:focus, QLineEdit#LineEditSetup:focus {\n"
+"    border: 1px solid #5865F2;\n"
+"}\n"
+"\n"
+"/* Token Badges (ETH / USDC equivalent) */\n"
+"QLabel#tokenBadgeVND, QLabel#tokenBadgeYear, QLabel#tokenBadgeSub1, QLabel#tokenBadgeSub2 {\n"
+"    background-color: #182030;\n"
+"    border: 1px solid rgba(255, 255, 255, 0.08);\n"
+"    border-radius: 14px;\n"
+"    color: #ffffff;\n"
+"    font-size: 12px;\n"
+"    font-weight: 700;\n"
+"    padding: 5px 12px;\n"
+"}\n"
+"\n"
+"QLabel#tokenBadgeVND {\n"
+"    color: #38bdf8;\n"
+"}\n"
+"\n"
+"QLabel#tokenBadgeYear {\n"
+"    color: #a78bfa;\n"
+"}\n"
+"\n"
+"/* Bottom Rate/Formula Info */\n"
+"QLabel#rateFormulaLabel {\n"
+"    color: #64748b;\n"
+"    font-size: 11px;\n"
+"    background: transparent;\n"
+"    padding: 4px 2px;\n"
+"}\n"
+"\n"
+"QLabel#rateFormulaValue {\n"
+"    color: #94a3b8;\n"
+"    font-size: 11px;\n"
+"    font-weight: 600;\n"
+"    background: transparent;\n"
+"}\n"
+"\n"
+"/* Large Primary CTA Button (Like \'Connect Wallet\') */\n"
+"QPushButton#pushButtonCalc {\n"
+"    background-color: #5865F2;\n"
+"    color: #ffffff;\n"
+"    font-size: 15px;\n"
+"    font-weight: 700;\n"
+"    border-radius: 14px;\n"
+"    padding: 13px 20px;\n"
+"    border: none;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonCalc:hover {\n"
+"    background-color: #4752c4;\n"
+"}\n"
+"\n"
+"QPushButton#pushButtonCalc:pressed {\n"
+"    background-color: #3c45a5;\n"
+"    padding-top: 14px;\n"
+"}\n"
+"\n"
+"/* Scrollbars */\n"
+"QScrollBar:vertical {\n"
+"    background: transparent;\n"
+"    width: 6px;\n"
+"    margin: 0;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical {\n"
+"    background: rgba(255, 255, 255, 0.15);\n"
+"    border-radius: 3px;\n"
+"    min-height: 20px;\n"
+"}\n"
+"\n"
+"QScrollBar::handle:vertical:hover {\n"
+"    background: rgba(255, 255, 255, 0.3);\n"
+"}\n"
+"\n"
+"QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"    height: 0px;\n"
+"}\n"
+"\n"
+"QMenuBar, QStatusBar {\n"
+"    background-color: transparent;\n"
+"    color: #64748b;\n"
+"    font-size: 11px;\n"
+"}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName("verticalLayout")
+        self.mainVerticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.mainVerticalLayout.setContentsMargins(28, 24, 28, 24)
+        self.mainVerticalLayout.setSpacing(0)
+        self.mainVerticalLayout.setObjectName("mainVerticalLayout")
+        self.bodyLayout = QtWidgets.QHBoxLayout()
+        self.bodyLayout.setSpacing(28)
+        self.bodyLayout.setObjectName("bodyLayout")
+        self.leftHeroLayout = QtWidgets.QVBoxLayout()
+        self.leftHeroLayout.setSpacing(16)
+        self.leftHeroLayout.setObjectName("leftHeroLayout")
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setPointSize(24)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color: rgb(255, 255, 255);")
-        self.label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label.setTextFormat(QtCore.Qt.TextFormat.RichText)
         self.label.setObjectName("label")
-        self.verticalLayout.addWidget(self.label)
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.formLayout = QtWidgets.QFormLayout()
-        self.formLayout.setObjectName("formLayout")
-        self.giMuaMILabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.giMuaMILabel.setFont(font)
-        self.giMuaMILabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.giMuaMILabel.setObjectName("giMuaMILabel")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.ItemRole.LabelRole, self.giMuaMILabel)
-        self.LineEditNew = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditNew.setStyleSheet("background-color: rgb(255, 217, 156);")
-        self.LineEditNew.setObjectName("LineEditNew")
-        self.formLayout.setWidget(0, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditNew)
-        self.phVNChuyNLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.phVNChuyNLabel.setFont(font)
-        self.phVNChuyNLabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.phVNChuyNLabel.setObjectName("phVNChuyNLabel")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.ItemRole.LabelRole, self.phVNChuyNLabel)
-        self.LineEditTrans = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditTrans.setStyleSheet("background-color: rgb(255, 217, 156);")
-        self.LineEditTrans.setObjectName("LineEditTrans")
-        self.formLayout.setWidget(1, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditTrans)
-        self.phLPTLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.phLPTLabel.setFont(font)
-        self.phLPTLabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.phLPTLabel.setObjectName("phLPTLabel")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.ItemRole.LabelRole, self.phLPTLabel)
-        self.LineEditSetup = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditSetup.setStyleSheet("background-color: rgb(255, 217, 156);")
-        self.LineEditSetup.setObjectName("LineEditSetup")
-        self.formLayout.setWidget(2, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditSetup)
-        self.sNMSDNgDKiNLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.sNMSDNgDKiNLabel.setFont(font)
-        self.sNMSDNgDKiNLabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.sNMSDNgDKiNLabel.setObjectName("sNMSDNgDKiNLabel")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.ItemRole.LabelRole, self.sNMSDNgDKiNLabel)
-        self.LineEditYear = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditYear.setStyleSheet("background-color: rgb(255, 217, 156);")
-        self.LineEditYear.setObjectName("LineEditYear")
-        self.formLayout.setWidget(3, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditYear)
-        self.pushButtonCalc = QtWidgets.QPushButton(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(False)
-        self.pushButtonCalc.setFont(font)
-        self.pushButtonCalc.setStyleSheet("background-color: rgb(243, 162, 0);\n"
-"color: rgb(255, 255, 255);")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("C:\\Users\\legal\\PycharmProjects\\PythonProject3\\BTQT\\EX130\\ui\\../images/icon_calculator.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButtonCalc.setIcon(icon)
-        self.pushButtonCalc.setObjectName("pushButtonCalc")
-        self.formLayout.setWidget(4, QtWidgets.QFormLayout.ItemRole.FieldRole, self.pushButtonCalc)
-        self.nguyNGiTSCLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.nguyNGiTSCLabel.setFont(font)
-        self.nguyNGiTSCLabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.nguyNGiTSCLabel.setObjectName("nguyNGiTSCLabel")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.ItemRole.LabelRole, self.nguyNGiTSCLabel)
-        self.LineEditOrg = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditOrg.setStyleSheet("background-color: rgb(255, 217, 156);")
+        self.leftHeroLayout.addWidget(self.label)
+        self.heroDesc = QtWidgets.QLabel(parent=self.centralwidget)
+        self.heroDesc.setWordWrap(True)
+        self.heroDesc.setObjectName("heroDesc")
+        self.leftHeroLayout.addWidget(self.heroDesc)
+        self.statsRowLayout = QtWidgets.QHBoxLayout()
+        self.statsRowLayout.setSpacing(12)
+        self.statsRowLayout.setObjectName("statsRowLayout")
+        self.statCard1 = QtWidgets.QFrame(parent=self.centralwidget)
+        self.statCard1.setObjectName("statCard1")
+        self.statLayout1 = QtWidgets.QVBoxLayout(self.statCard1)
+        self.statLayout1.setContentsMargins(12, 10, 12, 10)
+        self.statLayout1.setSpacing(3)
+        self.statLayout1.setObjectName("statLayout1")
+        self.LineEditOrg = QtWidgets.QLineEdit(parent=self.statCard1)
         self.LineEditOrg.setReadOnly(True)
         self.LineEditOrg.setObjectName("LineEditOrg")
-        self.formLayout.setWidget(5, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditOrg)
-        self.mCTrChKhUHaoNMLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.mCTrChKhUHaoNMLabel.setFont(font)
-        self.mCTrChKhUHaoNMLabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.mCTrChKhUHaoNMLabel.setObjectName("mCTrChKhUHaoNMLabel")
-        self.formLayout.setWidget(6, QtWidgets.QFormLayout.ItemRole.LabelRole, self.mCTrChKhUHaoNMLabel)
-        self.LineEditYearDep = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditYearDep.setStyleSheet("background-color: rgb(255, 217, 156);")
+        self.statLayout1.addWidget(self.LineEditOrg)
+        self.nguyNGiTSCLabel = QtWidgets.QLabel(parent=self.statCard1)
+        self.nguyNGiTSCLabel.setObjectName("nguyNGiTSCLabel")
+        self.statLayout1.addWidget(self.nguyNGiTSCLabel)
+        self.statsRowLayout.addWidget(self.statCard1)
+        self.statCard2 = QtWidgets.QFrame(parent=self.centralwidget)
+        self.statCard2.setObjectName("statCard2")
+        self.statLayout2 = QtWidgets.QVBoxLayout(self.statCard2)
+        self.statLayout2.setContentsMargins(12, 10, 12, 10)
+        self.statLayout2.setSpacing(3)
+        self.statLayout2.setObjectName("statLayout2")
+        self.LineEditYearDep = QtWidgets.QLineEdit(parent=self.statCard2)
         self.LineEditYearDep.setReadOnly(True)
         self.LineEditYearDep.setObjectName("LineEditYearDep")
-        self.formLayout.setWidget(6, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditYearDep)
-        self.mCTrChKhUHaoThNgLabel = QtWidgets.QLabel(parent=self.centralwidget)
-        font = QtGui.QFont()
-        font.setItalic(True)
-        self.mCTrChKhUHaoThNgLabel.setFont(font)
-        self.mCTrChKhUHaoThNgLabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.mCTrChKhUHaoThNgLabel.setObjectName("mCTrChKhUHaoThNgLabel")
-        self.formLayout.setWidget(7, QtWidgets.QFormLayout.ItemRole.LabelRole, self.mCTrChKhUHaoThNgLabel)
-        self.LineEditMonthDep = QtWidgets.QLineEdit(parent=self.centralwidget)
-        self.LineEditMonthDep.setStyleSheet("background-color: rgb(255, 217, 156);")
+        self.statLayout2.addWidget(self.LineEditYearDep)
+        self.mCTrChKhUHaoNMLabel = QtWidgets.QLabel(parent=self.statCard2)
+        self.mCTrChKhUHaoNMLabel.setObjectName("mCTrChKhUHaoNMLabel")
+        self.statLayout2.addWidget(self.mCTrChKhUHaoNMLabel)
+        self.statsRowLayout.addWidget(self.statCard2)
+        self.statCard3 = QtWidgets.QFrame(parent=self.centralwidget)
+        self.statCard3.setObjectName("statCard3")
+        self.statLayout3 = QtWidgets.QVBoxLayout(self.statCard3)
+        self.statLayout3.setContentsMargins(12, 10, 12, 10)
+        self.statLayout3.setSpacing(3)
+        self.statLayout3.setObjectName("statLayout3")
+        self.LineEditMonthDep = QtWidgets.QLineEdit(parent=self.statCard3)
         self.LineEditMonthDep.setReadOnly(True)
         self.LineEditMonthDep.setObjectName("LineEditMonthDep")
-        self.formLayout.setWidget(7, QtWidgets.QFormLayout.ItemRole.FieldRole, self.LineEditMonthDep)
-        self.listWidget = QtWidgets.QListWidget(parent=self.centralwidget)
-        self.listWidget.setStyleSheet("background-color: rgb(255, 217, 156);")
-        self.listWidget.setObjectName("listWidget")
-        self.formLayout.setWidget(8, QtWidgets.QFormLayout.ItemRole.FieldRole, self.listWidget)
-        self.verticalLayout_3.addLayout(self.formLayout)
-        self.verticalLayout_2.addLayout(self.verticalLayout_3)
-        self.horizontalLayout.addLayout(self.verticalLayout_2)
-        self.pushButtonDetail = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButtonDetail.setStyleSheet("background-color: rgb(243, 162, 0);\n"
-"color: rgb(255, 255, 255);")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("C:\\Users\\legal\\PycharmProjects\\PythonProject3\\BTQT\\EX130\\ui\\../images/icon_detail.png"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
-        self.pushButtonDetail.setIcon(icon1)
+        self.statLayout3.addWidget(self.LineEditMonthDep)
+        self.mCTrChKhUHaoThNgLabel = QtWidgets.QLabel(parent=self.statCard3)
+        self.mCTrChKhUHaoThNgLabel.setObjectName("mCTrChKhUHaoThNgLabel")
+        self.statLayout3.addWidget(self.mCTrChKhUHaoThNgLabel)
+        self.statsRowLayout.addWidget(self.statCard3)
+        self.leftHeroLayout.addLayout(self.statsRowLayout)
+        self.scheduleCard = QtWidgets.QFrame(parent=self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.scheduleCard.sizePolicy().hasHeightForWidth())
+        self.scheduleCard.setSizePolicy(sizePolicy)
+        self.scheduleCard.setObjectName("scheduleCard")
+        self.scheduleFrameLayout = QtWidgets.QVBoxLayout(self.scheduleCard)
+        self.scheduleFrameLayout.setContentsMargins(14, 12, 14, 12)
+        self.scheduleFrameLayout.setSpacing(10)
+        self.scheduleFrameLayout.setObjectName("scheduleFrameLayout")
+        self.scheduleHeaderLayout = QtWidgets.QHBoxLayout()
+        self.scheduleHeaderLayout.setObjectName("scheduleHeaderLayout")
+        self.scheduleTitleLayout = QtWidgets.QVBoxLayout()
+        self.scheduleTitleLayout.setSpacing(2)
+        self.scheduleTitleLayout.setObjectName("scheduleTitleLayout")
+        self.scheduleTitle = QtWidgets.QLabel(parent=self.scheduleCard)
+        self.scheduleTitle.setObjectName("scheduleTitle")
+        self.scheduleTitleLayout.addWidget(self.scheduleTitle)
+        self.scheduleSub = QtWidgets.QLabel(parent=self.scheduleCard)
+        self.scheduleSub.setObjectName("scheduleSub")
+        self.scheduleTitleLayout.addWidget(self.scheduleSub)
+        self.scheduleHeaderLayout.addLayout(self.scheduleTitleLayout)
+        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.scheduleHeaderLayout.addItem(spacerItem)
+        self.pushButtonDetail = QtWidgets.QPushButton(parent=self.scheduleCard)
+        self.pushButtonDetail.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
         self.pushButtonDetail.setObjectName("pushButtonDetail")
-        self.horizontalLayout.addWidget(self.pushButtonDetail)
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.horizontalLayout.addLayout(self.verticalLayout_4)
-        self.verticalLayout.addLayout(self.horizontalLayout)
+        self.scheduleHeaderLayout.addWidget(self.pushButtonDetail)
+        self.scheduleFrameLayout.addLayout(self.scheduleHeaderLayout)
+        self.listWidget = QtWidgets.QListWidget(parent=self.scheduleCard)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(1)
+        sizePolicy.setHeightForWidth(self.listWidget.sizePolicy().hasHeightForWidth())
+        self.listWidget.setSizePolicy(sizePolicy)
+        self.listWidget.setObjectName("listWidget")
+        self.scheduleFrameLayout.addWidget(self.listWidget)
+        self.leftHeroLayout.addWidget(self.scheduleCard)
+        self.bodyLayout.addLayout(self.leftHeroLayout)
+        self.swapCard = QtWidgets.QFrame(parent=self.centralwidget)
+        self.swapCard.setObjectName("swapCard")
+        self.swapCardLayout = QtWidgets.QVBoxLayout(self.swapCard)
+        self.swapCardLayout.setContentsMargins(22, 22, 22, 22)
+        self.swapCardLayout.setSpacing(14)
+        self.swapCardLayout.setObjectName("swapCardLayout")
+        self.swapHeaderLayout = QtWidgets.QHBoxLayout()
+        self.swapHeaderLayout.setObjectName("swapHeaderLayout")
+        self.swapTitle = QtWidgets.QLabel(parent=self.swapCard)
+        self.swapTitle.setObjectName("swapTitle")
+        self.swapHeaderLayout.addWidget(self.swapTitle)
+        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.swapHeaderLayout.addItem(spacerItem1)
+        self.swapStandardBadge = QtWidgets.QLabel(parent=self.swapCard)
+        self.swapStandardBadge.setObjectName("swapStandardBadge")
+        self.swapHeaderLayout.addWidget(self.swapStandardBadge)
+        self.swapCardLayout.addLayout(self.swapHeaderLayout)
+        self.boxInputPrice = QtWidgets.QFrame(parent=self.swapCard)
+        self.boxInputPrice.setObjectName("boxInputPrice")
+        self.boxPriceLayout = QtWidgets.QVBoxLayout(self.boxInputPrice)
+        self.boxPriceLayout.setContentsMargins(12, 10, 12, 10)
+        self.boxPriceLayout.setSpacing(6)
+        self.boxPriceLayout.setObjectName("boxPriceLayout")
+        self.priceTopRow = QtWidgets.QHBoxLayout()
+        self.priceTopRow.setObjectName("priceTopRow")
+        self.giMuaMILabel = QtWidgets.QLabel(parent=self.boxInputPrice)
+        self.giMuaMILabel.setObjectName("giMuaMILabel")
+        self.priceTopRow.addWidget(self.giMuaMILabel)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.priceTopRow.addItem(spacerItem2)
+        self.hintBalance = QtWidgets.QLabel(parent=self.boxInputPrice)
+        self.hintBalance.setObjectName("hintBalance")
+        self.priceTopRow.addWidget(self.hintBalance)
+        self.boxPriceLayout.addLayout(self.priceTopRow)
+        self.priceBottomRow = QtWidgets.QHBoxLayout()
+        self.priceBottomRow.setObjectName("priceBottomRow")
+        self.LineEditNew = QtWidgets.QLineEdit(parent=self.boxInputPrice)
+        self.LineEditNew.setObjectName("LineEditNew")
+        self.priceBottomRow.addWidget(self.LineEditNew)
+        self.tokenBadgeVND = QtWidgets.QLabel(parent=self.boxInputPrice)
+        self.tokenBadgeVND.setObjectName("tokenBadgeVND")
+        self.priceBottomRow.addWidget(self.tokenBadgeVND)
+        self.boxPriceLayout.addLayout(self.priceBottomRow)
+        self.swapCardLayout.addWidget(self.boxInputPrice)
+        self.boxInputCosts = QtWidgets.QFrame(parent=self.swapCard)
+        self.boxInputCosts.setObjectName("boxInputCosts")
+        self.boxCostsLayout = QtWidgets.QVBoxLayout(self.boxInputCosts)
+        self.boxCostsLayout.setContentsMargins(12, 10, 12, 10)
+        self.boxCostsLayout.setSpacing(8)
+        self.boxCostsLayout.setObjectName("boxCostsLayout")
+        self.hintSubCost = QtWidgets.QLabel(parent=self.boxInputCosts)
+        self.hintSubCost.setObjectName("hintSubCost")
+        self.boxCostsLayout.addWidget(self.hintSubCost)
+        self.transRow = QtWidgets.QHBoxLayout()
+        self.transRow.setObjectName("transRow")
+        self.phVNChuyNLabel = QtWidgets.QLabel(parent=self.boxInputCosts)
+        self.phVNChuyNLabel.setMinimumSize(QtCore.QSize(110, 0))
+        self.phVNChuyNLabel.setObjectName("phVNChuyNLabel")
+        self.transRow.addWidget(self.phVNChuyNLabel)
+        self.LineEditTrans = QtWidgets.QLineEdit(parent=self.boxInputCosts)
+        self.LineEditTrans.setObjectName("LineEditTrans")
+        self.transRow.addWidget(self.LineEditTrans)
+        self.tokenBadgeSub1 = QtWidgets.QLabel(parent=self.boxInputCosts)
+        self.tokenBadgeSub1.setObjectName("tokenBadgeSub1")
+        self.transRow.addWidget(self.tokenBadgeSub1)
+        self.boxCostsLayout.addLayout(self.transRow)
+        self.setupRow = QtWidgets.QHBoxLayout()
+        self.setupRow.setObjectName("setupRow")
+        self.phLPTLabel = QtWidgets.QLabel(parent=self.boxInputCosts)
+        self.phLPTLabel.setMinimumSize(QtCore.QSize(110, 0))
+        self.phLPTLabel.setObjectName("phLPTLabel")
+        self.setupRow.addWidget(self.phLPTLabel)
+        self.LineEditSetup = QtWidgets.QLineEdit(parent=self.boxInputCosts)
+        self.LineEditSetup.setObjectName("LineEditSetup")
+        self.setupRow.addWidget(self.LineEditSetup)
+        self.tokenBadgeSub2 = QtWidgets.QLabel(parent=self.boxInputCosts)
+        self.tokenBadgeSub2.setObjectName("tokenBadgeSub2")
+        self.setupRow.addWidget(self.tokenBadgeSub2)
+        self.boxCostsLayout.addLayout(self.setupRow)
+        self.swapCardLayout.addWidget(self.boxInputCosts)
+        self.boxInputYear = QtWidgets.QFrame(parent=self.swapCard)
+        self.boxInputYear.setObjectName("boxInputYear")
+        self.boxYearLayout = QtWidgets.QVBoxLayout(self.boxInputYear)
+        self.boxYearLayout.setContentsMargins(12, 10, 12, 10)
+        self.boxYearLayout.setSpacing(6)
+        self.boxYearLayout.setObjectName("boxYearLayout")
+        self.yearTopRow = QtWidgets.QHBoxLayout()
+        self.yearTopRow.setObjectName("yearTopRow")
+        self.sNMSDNgDKiNLabel = QtWidgets.QLabel(parent=self.boxInputYear)
+        self.sNMSDNgDKiNLabel.setObjectName("sNMSDNgDKiNLabel")
+        self.yearTopRow.addWidget(self.sNMSDNgDKiNLabel)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.yearTopRow.addItem(spacerItem3)
+        self.hintRate = QtWidgets.QLabel(parent=self.boxInputYear)
+        self.hintRate.setObjectName("hintRate")
+        self.yearTopRow.addWidget(self.hintRate)
+        self.boxYearLayout.addLayout(self.yearTopRow)
+        self.yearBottomRow = QtWidgets.QHBoxLayout()
+        self.yearBottomRow.setObjectName("yearBottomRow")
+        self.LineEditYear = QtWidgets.QLineEdit(parent=self.boxInputYear)
+        self.LineEditYear.setObjectName("LineEditYear")
+        self.yearBottomRow.addWidget(self.LineEditYear)
+        self.tokenBadgeYear = QtWidgets.QLabel(parent=self.boxInputYear)
+        self.tokenBadgeYear.setObjectName("tokenBadgeYear")
+        self.yearBottomRow.addWidget(self.tokenBadgeYear)
+        self.boxYearLayout.addLayout(self.yearBottomRow)
+        self.swapCardLayout.addWidget(self.boxInputYear)
+        self.rateInfoLayout = QtWidgets.QHBoxLayout()
+        self.rateInfoLayout.setObjectName("rateInfoLayout")
+        self.rateFormulaLabel = QtWidgets.QLabel(parent=self.swapCard)
+        self.rateFormulaLabel.setObjectName("rateFormulaLabel")
+        self.rateInfoLayout.addWidget(self.rateFormulaLabel)
+        spacerItem4 = QtWidgets.QSpacerItem(40, 10, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.rateInfoLayout.addItem(spacerItem4)
+        self.rateFormulaValue = QtWidgets.QLabel(parent=self.swapCard)
+        self.rateFormulaValue.setObjectName("rateFormulaValue")
+        self.rateInfoLayout.addWidget(self.rateFormulaValue)
+        self.swapCardLayout.addLayout(self.rateInfoLayout)
+        self.pushButtonCalc = QtWidgets.QPushButton(parent=self.swapCard)
+        self.pushButtonCalc.setMinimumSize(QtCore.QSize(0, 48))
+        self.pushButtonCalc.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.pushButtonCalc.setObjectName("pushButtonCalc")
+        self.swapCardLayout.addWidget(self.pushButtonCalc)
+        self.bodyLayout.addWidget(self.swapCard)
+        self.bodyLayout.setStretch(0, 56)
+        self.bodyLayout.setStretch(1, 44)
+        self.mainVerticalLayout.addLayout(self.bodyLayout)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1140, 22))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(parent=MainWindow)
@@ -160,16 +555,37 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "KHẤU HAO TÀI SẢN CỐ ĐỊNH"))
-        self.giMuaMILabel.setText(_translate("MainWindow", "Giá mua mới:"))
-        self.phVNChuyNLabel.setText(_translate("MainWindow", "Phí vận chuyển: "))
-        self.LineEditTrans.setText(_translate("MainWindow", "0"))
-        self.phLPTLabel.setText(_translate("MainWindow", "Phí lắp đặt:"))
-        self.LineEditSetup.setText(_translate("MainWindow", "0"))
-        self.sNMSDNgDKiNLabel.setText(_translate("MainWindow", "Số năm sử dụng dự kiến:"))
-        self.pushButtonCalc.setText(_translate("MainWindow", "1. Tính khấu hao"))
-        self.nguyNGiTSCLabel.setText(_translate("MainWindow", "Nguyên giá TSCĐ:"))
-        self.mCTrChKhUHaoNMLabel.setText(_translate("MainWindow", "Mức trích khấu hao năm:"))
-        self.mCTrChKhUHaoThNgLabel.setText(_translate("MainWindow", "Mức trích khấu hao tháng:"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "DeprecX — Hệ Thống Tính Khấu Hao Tài Sản Cố Định"))
+        self.label.setText(_translate("MainWindow", "<html><head/><body><p><span style=\"color:#ffffff;\">Khấu Hao Tài Sản</span><br/><span style=\"color:#2dd4bf;\">Chính Xác &amp; Tức Thì</span></p></body></html>"))
+        self.heroDesc.setText(_translate("MainWindow", "Mô hình tính toán khấu hao đường thẳng, phân bổ nguyên giá và lập lịch hao mòn lũy kế tài sản cố định minh bạch theo chuẩn mực kế toán hiện đại."))
+        self.LineEditOrg.setPlaceholderText(_translate("MainWindow", "0 VNĐ"))
+        self.nguyNGiTSCLabel.setText(_translate("MainWindow", "Nguyên giá TSCĐ"))
+        self.LineEditYearDep.setPlaceholderText(_translate("MainWindow", "0 VNĐ/năm"))
+        self.mCTrChKhUHaoNMLabel.setText(_translate("MainWindow", "Khấu hao / năm"))
+        self.LineEditMonthDep.setPlaceholderText(_translate("MainWindow", "0 VNĐ/tháng"))
+        self.mCTrChKhUHaoThNgLabel.setText(_translate("MainWindow", "Khấu hao / tháng"))
+        self.scheduleTitle.setText(_translate("MainWindow", "Lộ trình khấu hao chi tiết theo năm"))
+        self.scheduleSub.setText(_translate("MainWindow", "Giá trị còn lại của tài sản qua từng chu kỳ sử dụng"))
         self.pushButtonDetail.setText(_translate("MainWindow", "2. Xem chi tiết"))
+        self.swapTitle.setText(_translate("MainWindow", "Swap / Tính Khấu Hao"))
+        self.swapStandardBadge.setText(_translate("MainWindow", "VAS 03 • TT 45"))
+        self.giMuaMILabel.setText(_translate("MainWindow", "Giá mua mới ban đầu"))
+        self.hintBalance.setText(_translate("MainWindow", "Nguyên tệ: VNĐ"))
+        self.LineEditNew.setPlaceholderText(_translate("MainWindow", "100000000"))
+        self.tokenBadgeVND.setText(_translate("MainWindow", "● VND"))
+        self.hintSubCost.setText(_translate("MainWindow", "Chi phí vận chuyển & lắp đặt đưa vào trạng thái sẵn sàng:"))
+        self.phVNChuyNLabel.setText(_translate("MainWindow", "Phí vận chuyển:"))
+        self.LineEditTrans.setText(_translate("MainWindow", "0"))
+        self.LineEditTrans.setPlaceholderText(_translate("MainWindow", "0"))
+        self.tokenBadgeSub1.setText(_translate("MainWindow", "VND"))
+        self.phLPTLabel.setText(_translate("MainWindow", "Phí lắp đặt thử:"))
+        self.LineEditSetup.setText(_translate("MainWindow", "0"))
+        self.LineEditSetup.setPlaceholderText(_translate("MainWindow", "0"))
+        self.tokenBadgeSub2.setText(_translate("MainWindow", "VND"))
+        self.sNMSDNgDKiNLabel.setText(_translate("MainWindow", "Thời gian sử dụng dự kiến"))
+        self.hintRate.setText(_translate("MainWindow", "Chu kỳ trích KH"))
+        self.LineEditYear.setPlaceholderText(_translate("MainWindow", "5"))
+        self.tokenBadgeYear.setText(_translate("MainWindow", "● NĂM ▾"))
+        self.rateFormulaLabel.setText(_translate("MainWindow", "Tỷ lệ phân bổ năm"))
+        self.rateFormulaValue.setText(_translate("MainWindow", "1 Năm = 1 / Số năm nguyên giá"))
+        self.pushButtonCalc.setText(_translate("MainWindow", "1. Tính khấu hao"))
